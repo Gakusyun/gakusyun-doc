@@ -2,7 +2,7 @@
 name = "gakusyun-doc"
 version = "1.0.0"
 entrypoint = "src/lib.typ"
-authors = ["Gakusyun <gaoxj@example.com>"]
+authors = ["Gakusyun <gxj@gxj62.cn>"]
 license = "MIT"
 description = "一个支持中文的Typst文档模板，提供高度自定义的排版样式。"
 homepage = "https://github.com/gakusyun/gakusyun-doc"
