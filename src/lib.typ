@@ -3,14 +3,16 @@
 
 
 #let docu(
-  title: "",
-  author: "",
+  title: "请输入标题",
+  subtitle: "请输入副标题",
+  author: "请输入作者",
   show-title: true,
   title-page: false,
   blank-page: true,
   show-index: false,
   index-page: false,
   column-of-index: 1,
+  depth-of-index: 2,
   cjk-font: "Source Han Serif",
   emph-cjk-font: "FandolKai",
   latin-font: "New Computer Modern",
@@ -24,6 +26,22 @@
   column: 1,
   body,
 ) = {
+  if title == none {
+    title = ""
+  }
+
+  if subtitle == none {
+    subtitle = ""
+  }
+
+  if author == none {
+    author = ""
+  }
+
+  if date == none {
+    date = ""
+  }
+
   show: zebraw
 
   show raw: set text(font: mono-font)
@@ -66,6 +84,10 @@
   }
   author = author.join(", ")
 
+  if title == "" and subtitle == "" and author == "" and date == "" {
+    show-title = false
+  }
+
   if show-title {
     if title-page {
       page(numbering: none)[
@@ -92,12 +114,33 @@
           weight: "bold",
         )[
 
-          #text(size: zh("小二"))[#title]
+          #if title != "" {
+            [
+              #text(size: zh("小二"))[#title]
+            ]
+          }
 
-          #text(size: zh("小四"))[#author]
+          #if subtitle != "" {
+            [
+              #text(size: zh("小三"))[#subtitle]
+            ]
+          }
 
-          #text(size: zh("小四"))[#date]
-
+          #if author != "" and date != "" {
+            [
+              #text(size: zh("小四"))[作者：#author]
+              #h(2fr)
+              #text(size: zh("小四"))[#date]
+            ]
+          } else if author != "" {
+            [
+              #text(size: zh("小四"))[作者：#author]
+            ]
+          } else if date != "" {
+            [
+              #text(size: zh("小四"))[#date]
+            ]
+          }
           #line(length: 100%, stroke: 0.8pt)
         ]
       ]
@@ -107,7 +150,7 @@
     columns(column-of-index)[
       #outline(
         title: [目录],
-        depth: 3,
+        depth: depth-of-index,
         indent: auto,
       )
     ]

@@ -1,8 +1,9 @@
-#import "@preview/gakusyun-doc:1.0.0": *
+#import "@preview/gakusyun-doc:2.0.0": *
 
 // 设置模板参数
 #show: docu.with(
   title: "伽库噚文字模板",
+  subtitle: "仅适用于演示",
   author: "Gakusyun",
   show-title: true,
   title-page: false,
@@ -10,6 +11,7 @@
   show-index: true,
   index-page: false,
   column-of-index: 1,
+  depth-of-index: 2,
   cjk-font: "Source Han Serif",
   emph-cjk-font: "FandolKai",
   latin-font: "New Computer Modern",
@@ -18,7 +20,6 @@
   lang: "zh",
   region: "cn",
   paper: "a4",
-  date: datetime.today().display("[year]年[month]月[day]日"),
   numbering: "第1页 共1页",
   column: 2,
 )
