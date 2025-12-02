@@ -1,4 +1,4 @@
-#import "@preview/gakusyun-doc:2.0.0": *
+#import "../src/lib.typ": *
 
 // 设置模板参数
 #show: docu.with(
@@ -20,6 +20,7 @@
   lang: "zh",
   region: "cn",
   paper: "a4",
+  margin: (left: 1.5cm, right: 1.5cm, top: 1.5cm, bottom: 1.5cm),
   numbering: "第1页 共1页",
   column: 2,
 )

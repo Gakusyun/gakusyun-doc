@@ -3,9 +3,9 @@
 
 
 #let docu(
-  title: "请输入标题",
-  subtitle: "请输入副标题",
-  author: "请输入作者",
+  title: "",
+  subtitle: "",
+  author: "",
   show-title: true,
   title-page: false,
   blank-page: true,
@@ -21,6 +21,7 @@
   lang: "zh",
   region: "cn",
   paper: "a4",
+  margin: (left: 3.18cm, right: 3.18cm, top: 2.54cm, bottom: 2.54cm),
   date: datetime.today().display("[year]年[month]月[day]日"),
   numbering: "第1页 共1页",
   column: 1,
@@ -44,10 +45,18 @@
 
   show: zebraw
 
-  show raw: set text(font: mono-font)
+  show raw: set text(font: mono-font, "JetBrains Mono", "Monospace", "Courier New")
 
   set text(
-    font: ((name: latin-font, covers: "latin-in-cjk"), cjk-font),
+    font: (
+      (name: latin-font, covers: "latin-in-cjk"),
+      cjk-font,
+      "Noto Serif SC",
+      "Noto Serif CJK SC",
+      "FandolSong",
+      "SimSun",
+      "STSongti",
+    ),
     region: region,
     lang: lang,
     size: zh(default-size),
@@ -65,14 +74,14 @@
   )
 
   show emph: set text(
-    font: ((name: latin-font, covers: "latin-in-cjk"), emph-cjk-font),
+    font: ((name: latin-font, covers: "latin-in-cjk"), emph-cjk-font, "KaiTi"),
   )
 
   set document(author: author, title: title)
 
   set page(
     paper: paper,
-    margin: 1.5cm,
+    margin: margin,
     number-align: right,
     numbering: numbering,
   )
